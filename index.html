@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Hub – Discover Model Context Protocol Servers</title>
+  <meta name="description" content="The directory for Model Context Protocol (MCP) servers. Discover, compare, and integrate MCP tools for Claude, Cursor, VS Code Copilot, and any AI agent." />
+  <meta name="keywords" content="MCP server, Model Context Protocol, MCP tools, Claude MCP, Cursor MCP, AI agent tools, MCP directory, MCP marketplace" />
+  <meta property="og:title" content="MCP Hub – Discover MCP Servers for AI Agents" />
+  <meta property="og:description" content="The directory for Model Context Protocol servers. Find MCP tools for Claude, Cursor, and any AI assistant." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mcp.goldenbyte.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MCP Hub – MCP Server Directory" />
+  <meta name="twitter:description" content="Discover MCP servers for Claude, Cursor, VS Code Copilot and any AI agent." />
+  <link rel="canonical" href="https://mcp.goldenbyte.io" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Golden Byte" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MCP Hub",
+    "url": "https://mcp.goldenbyte.io",
+    "description": "Directory of Model Context Protocol (MCP) servers for AI agents",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Golden Byte",
+      "url": "https://goldenbyte.io"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://mcp.goldenbyte.io/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #D4AF37;
+      --gold-light: #F5D060;
+      --gold-dim:   #A07D1C;
+      --black:      #000000;
+      --surface:    #0A0A0A;
+      --surface-2:  #111111;
+      --surface-3:  #181818;
+      --border:     #222222;
+      --text:       #E8E8E8;
+      --text-muted: #888888;
+      --text-dim:   #555555;
+      --blue:       #3B82F6;
+      --green:      #22C55E;
+      --purple:     #A855F7;
+      --orange:     #F97316;
+      --pink:       #EC4899;
+      --teal:       #14B8A6;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+    .gold { color: var(--gold); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 14px 24px;
+    }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 32px; height: 32px; background: var(--gold); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 18px; height: 18px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-by { font-size: 12px; color: var(--text-dim); }
+    .nav-by a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .nav-by a:hover { color: var(--gold); }
+    .btn-submit {
+      background: var(--gold); color: var(--black);
+      font-size: 13px; font-weight: 600; padding: 8px 18px;
+      border-radius: 6px; text-decoration: none; transition: background 0.2s; white-space: nowrap;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 80px 24px 60px;
+      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(212,175,55,0.1) 0%, transparent 70%), var(--black);
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.25);
+      color: var(--gold); font-size: 11px; font-weight: 600;
+      padding: 5px 14px; border-radius: 100px; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge span:first-child { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero-h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); color: #fff; margin-bottom: 20px; }
+    .hero-h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 17px; color: var(--text-muted); max-width: 560px; margin: 0 auto 36px; }
+    .hero-stats { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 16px; }
+    .hero-stat { text-align: center; }
+    .hero-stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); }
+    .hero-stat-l { font-size: 12px; color: var(--text-dim); letter-spacing: 0.5px; text-transform: uppercase; }
+
+    /* ── SEARCH & FILTERS ── */
+    #search-section { padding: 32px 24px 0; }
+    .search-bar-wrap { max-width: 640px; margin: 0 auto 20px; position: relative; }
+    .search-bar {
+      width: 100%; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px 14px 48px;
+      font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text);
+      outline: none; transition: border-color 0.2s;
+    }
+    .search-bar::placeholder { color: var(--text-dim); }
+    .search-bar:focus { border-color: var(--gold-dim); }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--text-dim); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 900px; margin: 0 auto; }
+    .filter-btn {
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 13px; font-weight: 500;
+      padding: 7px 16px; border-radius: 100px; cursor: pointer;
+      transition: all 0.15s; white-space: nowrap; font-family: 'Inter', sans-serif;
+    }
+    .filter-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+    /* ── GRID ── */
+    #grid-section { padding: 32px 24px 80px; }
+    .grid-header { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto 20px; }
+    .grid-count { font-size: 13px; color: var(--text-dim); }
+    .servers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .server-card {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 24px; display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s, transform 0.15s; text-decoration: none; color: inherit;
+      cursor: pointer;
+    }
+    .server-card:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
+    .server-card.featured { border-color: rgba(212,175,55,0.4); position: relative; overflow: hidden; }
+    .server-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim)); }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .card-icon-wrap { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; }
+    .card-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .badge-official  { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+    .badge-featured  { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+    .badge-community { background: rgba(59,130,246,0.15); color: #60A5FA; border: 1px solid rgba(59,130,246,0.3); }
+    .badge-new       { background: rgba(34,197,94,0.15); color: #4ADE80; border: 1px solid rgba(34,197,94,0.3); }
+    .card-name { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
+    .card-category { font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; flex: 1; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 11px; background: var(--surface-3); border: 1px solid var(--border); color: var(--text-dim); padding: 2px 8px; border-radius: 4px; }
+    .card-link { font-size: 12px; color: var(--gold); text-decoration: none; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 4px; }
+    .card-link:hover { color: var(--gold-light); }
+    .card-hidden { display: none; }
+
+    /* ── SUBMIT CTA ── */
+    #submit { padding: 80px 24px; background: var(--surface); }
+    .submit-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .submit-inner h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); color: #fff; margin-bottom: 16px; }
+    .submit-inner p { color: var(--text-muted); font-size: 16px; margin-bottom: 32px; line-height: 1.8; }
+    .submit-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--black);
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+      padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--gold); color: var(--gold);
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px;
+      padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-inner p { font-size: 12px; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    .no-results { text-align: center; padding: 60px 24px; color: var(--text-dim); display: none; }
+    .no-results h3 { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--text-muted); margin-bottom: 8px; }
+
+    @media (max-width: 640px) {
+      .hero-stats { gap: 24px; }
+      .servers-grid { grid-template-columns: 1fr; }
+      .nav-by { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-logo-text">MCP <span>Hub</span></span>
+    </a>
+    <div class="nav-right">
+      <span class="nav-by">by <a href="https://goldenbyte.io" target="_blank" rel="noopener">Golden Byte</a></span>
+      <a href="https://github.com/diidi2509-ui/GoldenByte-McpHub/issues/new?template=submit.md&title=Submit+MCP+Server" target="_blank" rel="noopener" class="btn-submit">Submit a server →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-badge"><span></span><span>Model Context Protocol Directory</span></div>
+  <h1 class="hero-h1">Discover <em>MCP servers</em><br />for your AI agents</h1>
+  <p class="hero-sub">The open directory of Model Context Protocol tools. Find servers for Claude, Cursor, VS Code Copilot, and any MCP-compatible AI assistant.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-n" id="stat-count">12</div><div class="hero-stat-l">Servers listed</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">6</div><div class="hero-stat-l">Categories</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">3</div><div class="hero-stat-l">AI clients supported</div></div>
+  </div>
+</section>
+
+<!-- ── SEARCH ── -->
+<section id="search-section">
+  <div class="container">
+    <div class="search-bar-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="search-bar" id="search" placeholder="Search MCP servers…" oninput="filterServers()" autocomplete="off" />
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="setCategory('all', this)">All</button>
+      <button class="filter-btn" onclick="setCategory('data', this)">Data &amp; Files</button>
+      <button class="filter-btn" onclick="setCategory('dev', this)">Dev Tools</button>
+      <button class="filter-btn" onclick="setCategory('web', this)">Web &amp; Search</button>
+      <button class="filter-btn" onclick="setCategory('database', this)">Databases</button>
+      <button class="filter-btn" onclick="setCategory('communication', this)">Communication</button>
+      <button class="filter-btn" onclick="setCategory('ai', this)">AI &amp; LLM</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── GRID ── -->
+<section id="grid-section">
+  <div class="container">
+    <div class="grid-header">
+      <span class="grid-count" id="grid-count">Showing 12 servers</span>
+    </div>
+    <div class="servers-grid" id="servers-grid">
+
+      <!-- ImportGuard — FEATURED -->
+      <a href="https://importguard.io" target="_blank" rel="noopener" class="server-card featured" data-cat="data" data-name="importguard import validation data csv excel json mcp">
+        <div class="card-top">
+          <div>
+            <div class="card-icon-wrap" style="background:rgba(212,175,55,0.1);">🛡️</div>
+          </div>
+          <div class="card-badges">
+            <span class="badge badge-featured">Featured</span>
+            <span class="badge badge-new">New</span>
+          </div>
+        </div>
+        <div>
+          <div class="card-name">ImportGuard</div>
+          <div class="card-category">Data &amp; Files</div>
+        </div>
+        <div class="card-desc">Validate CSV, Excel, and JSON files before they break your system. AI agents call it natively — no extra code. Returns structured validation reports with risk scores, row-level errors, and fix suggestions.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">CSV</span><span class="tag">Excel</span><span class="tag">JSON</span><span class="tag">Validation</span></div>
+          <span class="card-link">importguard.io ↗</span>
+        </div>
+      </a>
+
+      <!-- Filesystem -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem" target="_blank" rel="noopener" class="server-card" data-cat="dev" data-name="filesystem file read write anthropic official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(59,130,246,0.1);">📁</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Filesystem</div>
+          <div class="card-category">Dev Tools</div>
+        </div>
+        <div class="card-desc">Read, write, and navigate local file system directories. One of the core official MCP servers from Anthropic — essential for any file-manipulation workflow.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Files</span><span class="tag">Read/Write</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/github" target="_blank" rel="noopener" class="server-card" data-cat="dev" data-name="github repos issues pull requests code search official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(168,85,247,0.1);">🐙</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">GitHub</div>
+          <div class="card-category">Dev Tools</div>
+        </div>
+        <div class="card-desc">Manage GitHub repos, issues, pull requests, and code search directly from your AI agent. Create issues, review PRs, and push code without leaving your AI workflow.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Repos</span><span class="tag">PRs</span><span class="tag">Issues</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Brave Search -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search" target="_blank" rel="noopener" class="server-card" data-cat="web" data-name="brave search web internet query official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(249,115,22,0.1);">🦁</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Brave Search</div>
+          <div class="card-category">Web &amp; Search</div>
+        </div>
+        <div class="card-desc">Give your AI agent real-time web search capability via Brave Search API. Query the live web, get news, research topics, and retrieve up-to-date information.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Search</span><span class="tag">Web</span><span class="tag">Real-time</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- PostgreSQL -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/postgres" target="_blank" rel="noopener" class="server-card" data-cat="database" data-name="postgres postgresql database sql query official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(59,130,246,0.1);">🐘</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">PostgreSQL</div>
+          <div class="card-category">Databases</div>
+        </div>
+        <div class="card-desc">Connect your AI agent directly to a PostgreSQL database. Run queries, inspect schemas, and read data — with read-only safety mode for production environments.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Database</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Puppeteer -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer" target="_blank" rel="noopener" class="server-card" data-cat="web" data-name="puppeteer browser automation scraping web official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(34,197,94,0.1);">🤖</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Puppeteer</div>
+          <div class="card-category">Web &amp; Search</div>
+        </div>
+        <div class="card-desc">Browser automation via Puppeteer. Navigate web pages, take screenshots, fill forms, and scrape content — letting AI agents interact with any website programmatically.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Browser</span><span class="tag">Scraping</span><span class="tag">Automation</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Slack -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank" rel="noopener" class="server-card" data-cat="communication" data-name="slack messages channels team communication official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(236,72,153,0.1);">💬</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Slack</div>
+          <div class="card-category">Communication</div>
+        </div>
+        <div class="card-desc">Read channels, post messages, and search Slack workspaces from your AI agent. Automate notifications, summarize conversations, and trigger alerts on validation events.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Slack</span><span class="tag">Messaging</span><span class="tag">Teams</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- SQLite -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite" target="_blank" rel="noopener" class="server-card" data-cat="database" data-name="sqlite database local sql lightweight official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(20,184,166,0.1);">🗄️</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">SQLite</div>
+          <div class="card-category">Databases</div>
+        </div>
+        <div class="card-desc">Query SQLite databases from your AI agent. Run SQL, inspect tables and schemas, and read local databases — ideal for lightweight local data access and analysis.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">SQLite</span><span class="tag">SQL</span><span class="tag">Local</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Google Drive -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive" target="_blank" rel="noopener" class="server-card" data-cat="data" data-name="google drive files documents sheets cloud official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(34,197,94,0.1);">📂</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Google Drive</div>
+          <div class="card-category">Data &amp; Files</div>
+        </div>
+        <div class="card-desc">Access, search, and read Google Drive files from your AI agent. Works with Docs, Sheets, and any Drive file — great for teams that store data in Google Workspace.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Google</span><span class="tag">Drive</span><span class="tag">Cloud</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Fetch -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/fetch" target="_blank" rel="noopener" class="server-card" data-cat="web" data-name="fetch http request url web api official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(249,115,22,0.1);">🌐</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Fetch</div>
+          <div class="card-category">Web &amp; Search</div>
+        </div>
+        <div class="card-desc">Make HTTP requests to any URL from your AI agent. Fetch web pages, call REST APIs, and retrieve remote resources — the simplest way to connect agents to the web.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">HTTP</span><span class="tag">API</span><span class="tag">Web</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Everart -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/everart" target="_blank" rel="noopener" class="server-card" data-cat="ai" data-name="everart image generation ai art official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(168,85,247,0.1);">🎨</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">EverArt</div>
+          <div class="card-category">AI &amp; LLM</div>
+        </div>
+        <div class="card-desc">Generate images directly from your AI agent using EverArt's API. Create illustrations, mockups, and visual assets without leaving your Claude or Cursor workflow.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Image</span><span class="tag">Generation</span><span class="tag">AI</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+      <!-- Memory -->
+      <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory" target="_blank" rel="noopener" class="server-card" data-cat="ai" data-name="memory knowledge graph persist context ai official">
+        <div class="card-top">
+          <div class="card-icon-wrap" style="background:rgba(212,175,55,0.1);">🧠</div>
+          <div class="card-badges"><span class="badge badge-official">Official</span></div>
+        </div>
+        <div>
+          <div class="card-name">Memory</div>
+          <div class="card-category">AI &amp; LLM</div>
+        </div>
+        <div class="card-desc">Persistent memory for AI agents via a knowledge graph. Agents can store and recall facts, relationships, and context across conversations — enabling true long-term memory.</div>
+        <div class="card-footer">
+          <div class="card-tags"><span class="tag">Memory</span><span class="tag">Knowledge Graph</span><span class="tag">Persistence</span></div>
+          <span class="card-link">GitHub ↗</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+      <h3>No servers found</h3>
+      <p>Try a different search term or category, or <a href="https://github.com/diidi2509-ui/GoldenByte-McpHub/issues/new" target="_blank" rel="noopener" style="color:var(--gold)">submit the server you're looking for</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUBMIT CTA ── -->
+<section id="submit">
+  <div class="submit-inner">
+    <h2>Built an MCP server?</h2>
+    <p>MCP Hub is community-driven. If you built or found an MCP server that should be listed here, submit it — it only takes a minute.</p>
+    <div class="submit-actions">
+      <a href="https://github.com/diidi2509-ui/GoldenByte-McpHub/issues/new?template=submit.md&title=Submit+MCP+Server" target="_blank" rel="noopener" class="btn-primary">Submit a server →</a>
+      <a href="https://github.com/diidi2509-ui/GoldenByte-McpHub" target="_blank" rel="noopener" class="btn-outline">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://goldenbyte.io" target="_blank" rel="noopener">Golden Byte</a>. MCP Hub is an open community directory.</p>
+    <div class="footer-links">
+      <a href="https://goldenbyte.io" target="_blank" rel="noopener">Golden Byte</a>
+      <a href="https://importguard.io" target="_blank" rel="noopener">ImportGuard</a>
+      <a href="https://github.com/diidi2509-ui/GoldenByte-McpHub" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:hello@goldenbyte.io">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+let activeCategory = 'all';
+
+function setCategory(cat, btn) {
+  activeCategory = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterServers();
+}
+
+function filterServers() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.server-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const catMatch = activeCategory === 'all' || card.dataset.cat === activeCategory;
+    const nameMatch = !q || card.dataset.name.includes(q) || card.querySelector('.card-name').textContent.toLowerCase().includes(q) || card.querySelector('.card-desc').textContent.toLowerCase().includes(q);
+    const show = catMatch && nameMatch;
+    card.classList.toggle('card-hidden', !show);
+    if (show) visible++;
+  });
+
+  document.getElementById('grid-count').textContent = `Showing ${visible} server${visible !== 1 ? 's' : ''}`;
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// Sync stat count with actual cards
+document.getElementById('stat-count').textContent = document.querySelectorAll('.server-card').length;
+</script>
+</body>
+</html>
